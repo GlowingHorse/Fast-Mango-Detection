@@ -11,7 +11,7 @@ Original YOLO implement is inspired by [qqwweee/keras-yolo3](https://github.com/
 
 2. The COCO2017 dataset can be found [here](http://cocodataset.org/#download). COCO website offer a lot of [API](https://github.com/cocodataset/cocoapi) for quickly using the COCO data. You can easily get the apple and orange images as you need.
 
-3. Download YOLOv3-tiny pre-trained weigths from [YOLOwebsite](http://pjreddie.com/darknet/yolo/). Then *convert.py* can be used to transfer the .weights file to .h5 file.
+3. Download YOLOv3-tiny pre-trained weigths from [YOLO website](http://pjreddie.com/darknet/yolo/). Then *convert.py* can be used to transfer the .weights file to .h5 file.
 
 4. Now the GradAM (gradient of target output with respect to the activation maps * activation maps) can be computed using *compute_grad_am.py*. We also upload the results in *model_data/grad_am_sort_idx_L.npy*, so you can directly use it to prune the YOLOv3-tiny.
 
