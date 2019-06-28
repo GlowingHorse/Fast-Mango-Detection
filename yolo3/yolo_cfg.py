@@ -144,7 +144,6 @@ class YOLO(object):
         is_tiny_version = num_anchors == 6  # default setting
         input_img_size = self.model_image_size
 
-        # 读入原始模型并load权重
         if is_tiny_version:
             self.yolo_model = tiny_yolo_body(
                 Input(shape=(input_img_size[0], input_img_size[1], 3)), num_anchors // 2, num_classes)
@@ -164,7 +163,6 @@ class YOLO(object):
         if self.gpu_num >= 2:
             self.yolo_model = multi_gpu_model(self.yolo_model, gpus=self.gpu_num)
 
-        # 开始设置一系列tensor的运算 以便获得gradam
         boxes, scores, classes, grad_ams, want_maskes = yolo_eval_grad_am(self.yolo_model.output, self.yolo_model,
                                                                           self.anchors,
                                                                           len(self.class_names), self.input_image_shape,
