@@ -1,4 +1,4 @@
-# Pruned_CPUlevel_YOLO4Mango
+# Fast Mango Detection on CPU-level using pruned YOLOv3-tiny
 For the manuscript 'Real-time mango detection on CPU using pruned YOLO network'
 
 ## Introduction
