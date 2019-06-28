@@ -136,6 +136,4 @@ if __name__ == '__main__':
 	)
 	FLAGS = parser.parse_args()
 
-	# 通过上面一系列设置 获得yolo这个类的参数
-	# 然后进入计算gradam的函数
 	compute_grad_am(YOLO(**vars(FLAGS)))
