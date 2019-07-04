@@ -68,11 +68,12 @@ def detect_img(yolo):
 			for i_out_boxes in range(len(out_boxes)):
 				out_box_iou = tuple(out_boxes[i_out_boxes])
 				iou_score = compute_iou(true_box_iou, out_box_iou)
-				if iou_score > 0.2:
+				if iou_score > 0.5:
 					TP = TP+1
 					TP_temp = TP_temp + 1
 					# remove used out_box
 					out_boxes[i_out_boxes] = 0, 0, 0, 0
+					break
 
 		TPFP = TPFP + len(out_boxes)
 		TPFN = TPFN + len(true_box)
