@@ -92,78 +92,37 @@ def detect_img(yolo):
 def _main():
 	os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"  # see issue #152
 	os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-	conv_lyr_idx = ["conv2d_1",
-					"conv2d_2",
-					"conv2d_3",
-					"conv2d_4",
-					"conv2d_5",
-					"conv2d_6",
-					"conv2d_7",
-					"conv2d_8",
-					"conv2d_11",
-					"conv2d_9",
-					"conv2d_12"]
-	conv_lyr_output_dim = [16,
-						   32,
-						   64,
-						   128,
-						   256,
-						   512,
-						   1024,
-						   256,
-						   128,
-						   512,
-						   256]
-	# #  prune比例
-	# prune_percentages = [0,
-	#                     0,
-	#                     0,
-	#                     0,
-	#                     0,
-	#                     0,
-	#                     0,
-	#                     0,
-	#                     0,
-	#                     0,
-	#                     0]
+	conv_lyr_idx = ["conv2d_1", "conv2d_2", "conv2d_3", "conv2d_4", "conv2d_5", "conv2d_6",
+			"conv2d_7", "conv2d_8", "conv2d_11", "conv2d_9", "conv2d_12"]
 
-	#  6.3Mb的prune比例
-	prune_percentages = [0,
-	                    0,
-	                    0,
-	                    0.4,
-	                    0.4,
-	                    0.5,
-	                    0.7,
-	                    0.6,
-	                    0.8,
-	                    0.8,
-	                    0.6]
+	conv_lyr_output_dim = [16, 32, 64, 128, 256, 512,
+			       1024, 256, 128, 512, 256]
+	# #  003 5.2Mb
+	# prune_percentages = [0.2, 0, 0, 0.5, 0.5, 0.5,
+	# 		0.75, 0.6, 0.75, 0.75, 0.75]
 
-	# # 4.6Mb的prune比例
-	# prune_percentages = [0,
-	# 					 0,
-	# 					 0,
-	# 					 0.5,
-	# 					 0.5,
-	# 					 0.5,
-	# 					 0.75,
-	# 					 0.75,
-	# 					 0.75,
-	# 					 0.875,
-	# 					 0.875]
+	# #  5.3Mb
+	prune_percentages = [0, 0, 0, 0.5, 0.5, 0.5,
+			     0.75, 0.5, 0.75, 0.75, 0.75]
 
-	log_dir = './logs/002pruned_net_for_train/'
-	sort_idx_L = np.load("./model_data/grad_am_sort_idx_L.npy", allow_pickle=True)
+	# #  6.3Mb
+	# prune_percentages =   [0,    0,          0,          0.4,        0.4,        0.5,
+	#                        0.7,  0.6,        0.8,        0.8,        0.6]
+	
+	# #  4.7Mb
+	# prune_percentages =   [0,    0,          0,          0.5,        0.5,        0.5,
+	#                        0.75, 0.75,       0.75,       0.875,      0.875]
+	
+	log_dir = './logs/002pruned_net_for_train/002-5.3/'
 	cfg = []
 	for i_cfg in range(11):
-		sort_idx = sort_idx_L[i_cfg]
+		layer_channels_i_cfg = conv_lyr_output_dim[i_cfg]
 		prune_percentage = prune_percentages[i_cfg]
-		prune_num = int(len(sort_idx)) - int(len(sort_idx) * prune_percentage)
+		prune_num = int(layer_channels_i_cfg) - int(layer_channels_i_cfg * prune_percentage)
 		cfg.append(prune_num)
 
 	opts = {
-		"model_path": log_dir + 'trained_weghts_final.h5',
+		"model_path": log_dir + 'ep360-loss23.708-val_loss26.419_0.944.h5',
 		"anchors_path": 'model_data/tiny_yolo_mango_anchors.txt',
 		"classes_path": 'model_data/mango_classes.txt',
 		"score": 0.5*0.5,  # for object score and classification score respectively
