@@ -1,7 +1,3 @@
-"""
-计算coco数据集中苹果和橘子类别的f1 score
-
-"""
 import sys
 import argparse
 from yolo3.yolo_cfg import YOLO
