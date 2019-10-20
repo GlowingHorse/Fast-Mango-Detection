@@ -20,14 +20,16 @@ Original YOLO implement is inspired by [qqwweee/keras-yolo3](https://github.com/
    * *compute_grad_am.py* is used for computing F1 scores of all network. 
    * *compute_flops.py* is used for computing FLOPs in Table 1 of the manuscript.
 
-6. Then we will use the GradAM to prune the network. Using "prune_for_retrain_yolo.py" to prune the original YOLO network, then using "retrain_pruned_net.py" to finetuning it. And, "train_MangoYolo.py" is for reproducing paper of MangoYOLO.
+6. Then we will use the GradAM to prune the network. Using "prune_for_retrain_yolo.py" to prune the original YOLO network, then using "retrain_pruned_net.py" to finetuning it. 
+
+7. "train_MangoYolo.py" is for reproducing paper of MangoYOLO.
 The trained weights and network structure can be find in *logs* for validate the results in our manuscript.
 
-7. Some description for directories. 
-   * Directory _data_annotation_ stores formatted txt file of mango dataset.
-   * Directory _dataset_ stores COCO apple and orange images and mango dataset.
-   * Directory _logs_ stores trained network weights.
-   * Directory _yolo3_ contains all network building codes and some utils.
+8. Some description for directories. 
+   * _data_annotation_ stores formatted txt file of mango dataset.
+   * _dataset_ stores COCO apple and orange images and mango dataset.
+   * _logs_ stores trained network weights.
+   * _yolo3_ contains all network building codes and some utils.
 
 ## Try it
 1. For the Table 1 in the manuscript
