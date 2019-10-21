@@ -15,8 +15,8 @@ from keras.utils.vis_utils import plot_model
 
 
 def _main():
-    train_annotation_path = './data_annotation/2007_train_valid.txt'
-    val_annotation_path = './data_annotation/2007_test.txt'
+    train_annotation_path = './data_annotation/train.txt'
+    val_annotation_path = './data_annotation/test.txt'
     log_dir = './logs/002pruned_net_for_train/003/'
     classes_path = 'model_data/mango_classes.txt'
     anchors_path = 'model_data/tiny_yolo_mango_anchors.txt'
