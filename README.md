@@ -1,5 +1,5 @@
 # Fast Mango Detection on CPU-level using pruned YOLOv3-tiny
-For the manuscript 'Real-time mango detection on CPU using pruned YOLO network'
+For the paper 'Real-time mango detection on CPU using pruned YOLO network'
 
 ## Introduction
 A Keras implementation of pruned YOLOv3-tiny to detect mango data (Tensorflow backend).
