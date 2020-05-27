@@ -34,4 +34,17 @@ The trained weights and network structure can be find in *logs* for validate the
 ## Try it
 1. For the Table 1 in the manuscript
     * After reformatting the mango data labels to _.txt_, run _detect_mango_cfg.py_ to generate the F1 score in Table 1. You can change param cfg to use other trained networks to detect the mango.
+    
+## Citation
+```
+@article{shi2020attribution,
+  title={An attribution-based pruning method for real-time mango detection with YOLO network},
+  author={Shi, Rui and Li, Tianxing and Yamaguchi, Yasushi},
+  journal={Computers and Electronics in Agriculture},
+  volume={169},
+  pages={105214},
+  year={2020},
+  publisher={Elsevier}
+}
+```
    
